@@ -1,0 +1,64 @@
+body{
+    overflow-x: hidden;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.main__section{
+    margin-bottom: 60px;
+    overflow: auto;
+}
+.title{
+    text-align: center;
+}
+
+.line{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #000;
+    margin: 0 20%;
+    height: 35px;
+}
+
+.line:hover{
+    box-shadow: 1px 1px 3px 3px;
+}
+
+.line li{
+    justify-content:flex-start;
+    border-right: 1px solid #000;
+    width: 27%;
+}
+.tooltip {
+    left: -100%;
+    position: absolute;
+    padding: 10px 20px;
+    border: 1px solid #b3c9ce;
+    border-radius: 4px;
+    text-align: center;
+    font: italic 14px/1.3 sans-serif;
+    color: #333;
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+  }
+/* 
+.table{
+    margin: 0 3%;
+    border: 1px solid #000;
+} */
+
+.second__table{
+    position: absolute;
+    width: 40%;
+    overflow:auto;
+}
+.second__table ul{
+    
+    overflow: auto;
+    margin: 0 0%;
+    background-color: #666;
+    
+}
