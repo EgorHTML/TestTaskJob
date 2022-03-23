@@ -44,11 +44,6 @@ body{
     background: #fff;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
   }
-/* 
-.table{
-    margin: 0 3%;
-    border: 1px solid #000;
-} */
 
 .second__table{
     position: absolute;
@@ -56,7 +51,6 @@ body{
     overflow:auto;
 }
 .second__table ul{
-    
     overflow: auto;
     margin: 0 0%;
     background-color: #666;
