@@ -9,7 +9,8 @@ valute.renderValutes(await valute.getValutes()).then(()=>{
     for(let i = 0;i<valuteLines.length;i++){listValute.push(valuteLines[i])}
     listValute.forEach((line)=>line.addEventListener("mouseover",renderingTooltip))
     
-}).then(renderLastData)
+})
+.then(renderLastData)
 
 function renderingTooltip({target}){
     let tooltip
@@ -65,6 +66,7 @@ async function generateTable(event){
     div.style.top = `${y}px`
     const lastValute = new Valute(div,"")
     lastValute.renderValutes(await getLastData(id))
+    checkCountTable()
     mainSection.appendChild(div)
   }
 }
@@ -83,6 +85,15 @@ async function getLastData(id){
             continue
         }
     }
+    
     return valutes
 }
+
+function checkCountTable(){
+    if(document.querySelectorAll(".second__table").length===1){
+        document.querySelectorAll(".second__table")[1].remove()
+    }
+}
+
+
 
