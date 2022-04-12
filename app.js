@@ -1,21 +1,17 @@
-import { valute,mainSection,Valute } from "./Valute.js"
+import { valute, mainSection, Valute } from "./Valute.js"
 import Api from "./Api.js"
 
-let day = new Date().getDate()
-let month = new Date().getMonth()+1
+const day = new Date().getDate()
+const month = new Date().getMonth()+1
 
 class Calendar{
-    static getDay(){
-        return String(day).length==1?`0${day}`:`${day}`
-    }
-    
     static getMonth(){
         return String(month).length==1?`0${month}`:`${month}`
     }
+    static getDay(day){
+        return String(day).length==1?`0${day}`:`${day}`
+    }
 }
-
-
-console.log(day)
 
 const listValute = []
 valute.renderValutes(await valute.getValutes()).then(()=>{
@@ -89,12 +85,11 @@ async function getLastData(id){
     const valutes = {}
     for(let i = 0;i<=13;i++){
         try{
-            let prevUrl = `//www.cbr-xml-daily.ru/archive/2022/${Calendar.getMonth()}/${Calendar.getDay()-i}/daily_json.js`
-            let api = new Api(prevUrl)
+            let prevUrl = `//www.cbr-xml-daily.ru/archive/2022/${Calendar.getMonth()}/${Calendar.getDay(day-i)}/daily_json.js`
+            let api =  new Api(prevUrl)
             let data = await api.getDataJson()
             valutes[id+i] = data.Valute[id]
         }catch(err){
-            i+=1
             console.clear()
             continue
         }

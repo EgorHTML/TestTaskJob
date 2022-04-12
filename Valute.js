@@ -2,12 +2,17 @@ import Api from './Api.js'
 
 export const mainSection = document.querySelector(".main__section")
 const url = `https://www.cbr-xml-daily.ru/daily_json.js`
+
 const api = new Api(url)
 
 export class Valute{
     constructor(section,api){
         this.section = section
         this.api = api
+    }
+
+    getFullDataFromApi(){
+        return this.api.getDataJson().then(data=>data)
     }
     
      getValutes(){
@@ -39,9 +44,10 @@ export class Valute{
                 
             else if(secondValue<firstValue)return "&#9661" //down
                 
-            return ""
+            return " "
         }
         return `${differenceProcent.toFixed(2)}% ${mark()}`
     }
 }
 export const valute = new Valute(mainSection,api)
+
