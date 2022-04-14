@@ -1,6 +1,7 @@
 import { valute, mainSection, Valute } from "./Valute.js"
 import Api from "./Api.js"
 
+const year = new Date().getFullYear()
 const day = new Date().getDate()
 const month = new Date().getMonth()+1
 
@@ -85,7 +86,7 @@ async function getLastData(id){
     const valutes = {}
     for(let i = 0;i<=13;i++){
         try{
-            let prevUrl = `//www.cbr-xml-daily.ru/archive/2022/${Calendar.getMonth()}/${Calendar.getDay(day-i)}/daily_json.js`
+            let prevUrl = `//www.cbr-xml-daily.ru/archive/${year}/${Calendar.getMonth()}/${Calendar.getDay(day-i)}/daily_json.js`
             let api =  new Api(prevUrl)
             let data = await api.getDataJson()
             valutes[id+i] = data.Valute[id]
